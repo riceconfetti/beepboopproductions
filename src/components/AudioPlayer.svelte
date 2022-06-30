@@ -9,19 +9,19 @@
     <div class="player">
         <div class="controls">
             <button id="back" >
-                <img src="./play-skip-back-outline.svg" alt="back"/>
+                <ion-icon name="play-skip-back-outline"></ion-icon>
             </button>
             <button id="play">
-                <img src="./play-outline.svg" alt="play"/>
+                <ion-icon name="play-outline"></ion-icon>
             </button>
             <button id="forward">
-                <img src="./play-skip-forward-outline.svg" alt="skip"/>
+                <ion-icon name="play-skip-forward-outline"></ion-icon>
             </button>
             <button id="shuffle">
-                <img src="./shuffle-outline.svg" alt="shuffle"/>
+                <ion-icon name="shuffle-outline"></ion-icon>
             </button>
             <button id="repeat">
-                <img src="./repeat-outline.svg" alt="repeat"/>
+                <ion-icon name="repeat-outline"></ion-icon>
             </button>
         </div>
 
@@ -59,9 +59,10 @@
           button {
             border: none;
             background-color: rgba(0, 0, 0, 0);
-            img {
+            ion-icon {
               color: black;
-              width: 1.3rem;
+              font-size: 1.3rem;
+              --ionicon-stroke-width: 2.7rem;
             }
           }
         }
