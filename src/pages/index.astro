@@ -1,9 +1,10 @@
 ---
 import Main from '../layouts/Main.astro';
 import AudioPlayer from '../components/AudioPlayer.svelte'
+import {audioData} from "../audioData.js";
 ---
 <Main title="Beep Boop Productions">
-    <AudioPlayer/>
+    <AudioPlayer audioData = {audioData}/>
 </Main>
 
 <style lang=scss>

@@ -1,98 +1,93 @@
 <script>
-
+    import Playlist from "../components/Playlist.svelte";
+    export let audioData;
 </script>
 
 <div class="audioPlayer">
     <h1>Tracklist</h1>
-    <div class="tracklist">
-        <ul>
-            <li class="active">
-                <span class="trackNumber">1.</span>
-                <span class="title">All In</span>
-                <span>by</span>
-                <span class="artist">Stray Kids</span>
-            </li>
-            <li>
-                <span class="trackNumber">1.</span>
-                <span class="title">All In</span>
-                <span>by</span>
-                <span class="artist">Stray Kids</span>
-            </li>
-            <li>
-                <span class="trackNumber">1.</span>
-                <span class="title">All In</span>
-                <span>by</span>
-                <span class="artist">Stray Kids</span>
-            </li>
-            <li>
-                <span class="trackNumber">1.</span>
-                <span class="title">All In</span>
-                <span>by</span>
-                <span class="artist">Stray Kids</span>
-            </li>
-        </ul>
+
+    <div class="player">
+        <div class="controls">
+            <button id="back" >
+                <img src="./play-skip-back-outline.svg" alt="back"/>
+            </button>
+            <button id="play">
+                <img src="./play-outline.svg" alt="play"/>
+            </button>
+            <button id="forward">
+                <img src="./play-skip-forward-outline.svg" alt="skip"/>
+            </button>
+            <button id="shuffle">
+                <img src="./shuffle-outline.svg" alt="shuffle"/>
+            </button>
+            <button id="repeat">
+                <img src="./repeat-outline.svg" alt="repeat"/>
+            </button>
+        </div>
+
+        <div class="progress-bar">
+            <span id="progress-time">0:00</span>
+            <div id="progress-bar-cont">
+                <span id="bar" style="width:30%" ></span>
+            </div>
+            <span id="track-duration">0:27</span>
+        </div>
     </div>
+
+    <Playlist {audioData}/>
 </div>
 
 <style lang="scss">
     .audioPlayer {
       margin: auto;
       width: 70vw;
+      .player {
+        padding: 1rem;
+        display: flex;
+        background: #f9b710;
+        border: 2px solid black;
+        margin-bottom: 2rem;
+        box-shadow: 8px 8px 0px black;
+        gap: 3rem;
+        font-family: "Akira Expanded";
+        font-size: .8rem;
+        align-items: center;
+        color:black;
+        .controls {
+          display: flex;
+          gap: 5px;
+          button {
+            border: none;
+            background-color: rgba(0, 0, 0, 0);
+            img {
+              color: black;
+              width: 1.3rem;
+            }
+          }
+        }
+        .progress-bar {
+          width: 100%;
+          display: flex;
+          gap: 1rem;
+          #progress-bar-cont {
+            width: 100%;
+            border: 1px solid black;
+            background-color: rgba(0,0,0,0);
+            #bar {
+              display: block;
+              height: 100%;
+              background: black;
+            }
+          }
+        }
+
+      }
       h1 {
+        margin:0;
         margin-bottom: .2em;
         text-shadow: 2px 2px 0px white;
         font-size: 3em;
         color: black;
-      }
-    }
-
-    .tracklist {
-      font-family: "Akira Expanded";
-      max-height: 66vh;
-      overflow: auto;
-      font-weight: normal;
-      letter-spacing: 2px;
-      background: rgba(0,0,0, 0.9);
-      padding: 0em;
-      color: #f9b710;
-      ul {
-        display: grid;
-        padding: 1em;
-        margin: 0em;
-        grid-template-columns: auto;
-        width: auto;
-        li.active {
-          background-color: #f9b710;
-          font-weight: bold;
-          width: auto;
-          color:black;
-          .title, .artist{
-            color: black;
-            font-weight:500;
-            -webkit-text-stroke: .5px;
-          }
-        }
-        li {
-          display: flex;
-          padding: 1em;
-          align-items: center;
-          width: fit-content;
-          font-weight: 500;
-          text-shadow: 1.5px 1.5px 0px #f9b710;
-          color: #fff;
-          font-size: 12px;
-          gap: 20px;
-          .trackNumber {
-            font-weight: bold;
-            text-shadow: none;
-          }
-          .title, .artist{
-            font-weight: normal;
-            text-shadow: none;
-            color: #f9b710;
-            font-size: 16px;
-          }
-        }
       }
     }
 </style>
